@@ -5,7 +5,7 @@ v20.17.0
 ## Typescript
 5.6.2
 ## 試験問題開始の流れ
-### 1. 回答者用のリモートリポジトリを「irusiru-exma-ランダム文字列」の形式で作成
+### 1. 回答者用のリモートリポジトリを「irusiru-exam-ランダム文字列」の形式で作成
 ### 2. irusiru_exam_masterのディレクトリで以下を実行
 ```
 git push --mirror https://github.com/Lubis-inc/作成したリポジトリ名
