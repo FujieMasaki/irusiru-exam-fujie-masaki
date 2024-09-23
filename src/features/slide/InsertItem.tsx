@@ -3,9 +3,9 @@ import { itemFactory } from '../../mock/slideItemFactory';
 import { CurrentSlideManager } from '../../recoil/currentSlide';
 export const InsertItem = () => {
     const insertText = () => {
-        const text = itemFactory("text", { content: "Hello World from Feature" })
-        console.log("Inserting text from feature branch");
-        CurrentSlideManager.set((slide) => {
+        const text = itemFactory("text", { content: "Hello World from Main" })
+        console.log("Inserting text from main branch");
+        CurrentSlideManager.aaa((slide) => {
             return {
                 ...slide,
                 items: [
@@ -16,27 +16,9 @@ export const InsertItem = () => {
         })
     }
 
-    const insertImage = () => {
-        const image = itemFactory("image", { src: "image_url" })
-        CurrentSlideManager.set((slide) => {
-            return {
-                ...slide,
-                items: [
-                    ...slide.items,
-                    image
-                ]
-            }
-        })
-    }
-
     return (
-        <div>
-            <button onClick={insertText}>
-                Insert Feature Text
-            </button>
-            <button onClick={insertImage}>
-                Insert Image
-            </button>
-        </div>
+        <button onClick={insertText}>
+            Insert Main Text
+        </button>
     )
 }

@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 import { Slide } from "../types";
 import { setRecoil } from "recoil-nexus";
+import { isEqual } from "lodash";
 
 export const currentSlide = atom<Slide>({
     key: "currentSlide",
@@ -11,7 +12,9 @@ export const currentSlide = atom<Slide>({
 });
 
 export const CurrentSlideManager = {
-    set: (slide: Slide | ((val: Slide) => Slide)) => {
-        setRecoil(currentSlide, slide)
-    },
+    aaa: (slide: Slide | ((val: Slide) => Slide)) => setRecoil(currentSlide, prev => {
+        const next = typeof slide === "function" ? slide(prev) : slide;
+        if(isEqual(prev, next)) return prev;
+        return next;
+    })
 }

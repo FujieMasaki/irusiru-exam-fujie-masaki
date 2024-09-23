@@ -5,7 +5,7 @@ import { useEffect } from "react"
 export const useVersionEffect = () => {
     const _currentSlide = useRecoilValue(currentSlide)
 
-    const handleSetVersion = () => CurrentSlideManager.set(prev => ({
+    const handleSetVersion = () => CurrentSlideManager.aaa(prev => ({
         ...prev,
         version: prev.version + 1
       }))

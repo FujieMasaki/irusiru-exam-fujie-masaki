@@ -5,7 +5,7 @@ export const Recognizer = (props: {
     item: SlideItem
 }) => {
     if( props.item.type === "text")
-        return <textarea onChange={(event) => CurrentSlideManager.set(prev => ({
+        return <textarea onChange={(event) => CurrentSlideManager.aaa(prev => ({
             ...prev,
             items: prev.items.map(item => item.id === props.item.id ? ({
                 ...item,
