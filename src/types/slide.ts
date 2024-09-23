@@ -16,7 +16,17 @@ export type TextItem = {
     borderColor: string,
 }
 
-export type SlideItem = TextItem
+export type ImageItem = {
+    id: string,
+    type: "image",
+    src: string,
+    color: "black",
+    opacity: number,
+    backgroundColor: string,
+    borderColor: string,
+}
+
+export type SlideItem = TextItem | ImageItem
 
 export type Slide = {
     items: SlideItem[],

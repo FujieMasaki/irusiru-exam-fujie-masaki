@@ -1,4 +1,4 @@
-import { SlideItem } from "../types";
+import { SlideItem, TextItem } from "../types";
 import { v4 as uuid } from "uuid";
 export const itemFactory = (type: SlideItem["type"], overrides: Partial<SlideItem> = {}): SlideItem => {
     if(type === "text") return {
@@ -18,7 +18,7 @@ export const itemFactory = (type: SlideItem["type"], overrides: Partial<SlideIte
         backgroundColor: "transparent",
         borderColor: "transparent",
         ...overrides
-    }
+    } as TextItem
 
     throw Error("Invalid type")
 }
