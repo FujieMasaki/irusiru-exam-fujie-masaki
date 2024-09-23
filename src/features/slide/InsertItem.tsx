@@ -16,26 +16,10 @@ export const InsertItem = () => {
         })
     }
 
-    const insertImage = () => {
-        const image = itemFactory("image", { src: "image_url" })
-        CurrentSlideManager.set((slide) => {
-            return {
-                ...slide,
-                items: [
-                    ...slide.items,
-                    image
-                ]
-            }
-        })
-    }
-
     return (
         <div>
             <button onClick={insertText}>
                 Insert Feature Text
-            </button>
-            <button onClick={insertImage}>
-                Insert Image
             </button>
         </div>
     )
