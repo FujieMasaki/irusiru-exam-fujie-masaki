@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+      // dir外のソースを参照できないように
+      "rootDir": "./",
+      // コンパイル先 ES ver
+      "target": "es6",
+      // コンパイルに含めるlib files
+      "lib": ["dom", "dom.iterable", "esnext"],
+      // *.d.ts の型チェックをスキップ
+      "skipLibCheck": true,
+      // JSのコンパイルを許可
+      "allowJs": true,
+      // CommonJS形式のモジュールをES Modulesでdefault import可能に
+      "esModuleInterop": true,
+      // default export無しでのdefault importを許可
+      "allowSyntheticDefaultImports": true,
+      // true推奨 (https://qiita.com/kyntk/items/9c596306495aef06dbc0)
+      "strict": true,
+      // import時にファイルパス内の大文字小文字を区別する
+      "forceConsistentCasingInFileNames": true,
+      // fallthroughかつ脱出処理が無いcase文にエラー
+      "noFallthroughCasesInSwitch": true,
+      // 出力するjsのモジュールの仕組み
+      "module": "esnext",
+      // モジュール解決の方法 (node推奨)
+      "moduleResolution": "node",
+      // JSONから型の抽出、生成を可能に
+      "resolveJsonModule": true,
+      // コンパイル対象のファイルはexport構文を含む必要あり
+      "isolatedModules": true,
+      // tsx -> react jsxに変換
+      "jsx": "react-jsx",
+      // コンパイル結果を出力しない 型チェックにのみ使用
+      "noEmit": true
+      // TS4.2~ で動作 デバック時に使用 コンパイルファイル間の依存関係の表示
+      // "explainFiles": true
+    },
+    "include": ["src/**/*", "test/**/*"],
+    "exclude": ["test/oldUI/*"] // not 設定ファイルを対象から除去 but 設定ファイルをincludeから除去
+  }
+  
