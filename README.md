@@ -5,8 +5,13 @@ v20.17.0
 ## Typescript
 5.6.2
 ## 試験問題開始の流れ
-### 1. 回答者用のリポジトリを「irusiru-exma-ランダム文字列」の形式で作成
-### 2. irusiru_exam_masterのディレクトリでgit push --mirror https://github.com/Lubis-inc/作成したリポジトリ名
+### 1. 回答者用のリモートリポジトリを「irusiru-exma-ランダム文字列」の形式で作成
+### 2. irusiru_exam_masterのディレクトリで以下を実行
+```
+git push --mirror https://github.com/Lubis-inc/作成したリポジトリ名
+// リポジトリを複製（コミットやブランチなど全て）
+```
+またfeatureブランチからmainブランチへのPRを作成しておく（これがコンフリクトしてます）
 ### 3. 回答者へメールアドレスをヒアリングし、新しく作成したリポジトリに回答者のアカウント招待を行う
 ### 4. 回答者へ以下の連絡を行う
 「今からお渡しするリポジトリの問題点を可能なだけ修正してください。コードの変更点に関しては「test」という名前のブランチを使用し、PR作成時はbaseがfeature、compareがtestとなるように作成してください。」
