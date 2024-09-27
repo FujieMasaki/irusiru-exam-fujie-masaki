@@ -9,7 +9,6 @@ export const useLoginParams = () => {
     });
     const [error, setError] = useState('');
 
-    console.log('params', params);
     const handleOnSubmit = () => {
         if(params.password === '') {
             setError('Password is required.');

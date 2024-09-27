@@ -10,6 +10,7 @@ export const Slide = () => {
     return (
         <div>
             <InsertItem />
+            {/* 問題⑥ 同一のクラス名が存在することでcssのバッティングを起こしています */}
             <div className='container'>
                 {_currentSlide.items.map(item => <Recognizer item={item} key={item.id} />)}
             </div>

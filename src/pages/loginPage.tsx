@@ -1,11 +1,13 @@
 import React from 'react';
 import { useLoginParams } from '../hooks';
 export const LoginPage = () => {
+    // 問題④以下の変数・関数の型がUNION型になっています。適切な型になるよう修正してください
     const [
         error,
         handleOnSubmit,
         handleOnChange
     ] = useLoginParams()
+
 
     return (
         <div>

@@ -7,6 +7,8 @@ import { useVersionEffect } from '../hooks';
 export const HomePage = () => {
     const _currentUser = useRecoilValue(currentUser);
 
+    // 問題⑤以下のhooksにより無限レンダリングが発生しているので修正してください
+
     useVersionEffect()
 
     return _currentUser? (

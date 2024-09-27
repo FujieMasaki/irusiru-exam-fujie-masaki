@@ -11,6 +11,7 @@ export const currentSlide = atom<Slide>({
     },
 });
 
+// 問題③ aaa関数の命名を適切なものに変更してください
 export const CurrentSlideManager = {
     aaa: (slide: Slide | ((val: Slide) => Slide)) => setRecoil(currentSlide, prev => {
         const next = typeof slide === "function" ? slide(prev) : slide;
