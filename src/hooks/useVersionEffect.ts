@@ -6,7 +6,7 @@ export const useVersionEffect = () => {
   const _currentSlide = useRecoilValue(currentSlide);
 
   const handleSetVersion = () =>
-    CurrentSlideManager.aaa((prev) => ({
+    CurrentSlideManager.updateSlide((prev) => ({
       ...prev,
       version: prev.version + 1,
     }));
