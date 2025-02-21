@@ -15,7 +15,7 @@ export const useVersionEffect = () => {
     if (_currentSlide.items.length > 0) {
       handleSetVersion();
     }
-  }, [_currentSlide.items]);
+  }, []);
 
   return null;
 };
