@@ -1,9 +1,8 @@
-import { useRecoilValue } from "recoil";
-import { currentSlide, currentSlideManager } from "../recoil/currentSlide";
+import { currentSlideManager } from "../recoil/currentSlide";
 import { useEffect } from "react";
 
 export const useVersionEffect = () => {
-  const _currentSlide = useRecoilValue(currentSlide);
+  console.log("useVersionEffect 実行");
 
   const handleSetVersion = () =>
     currentSlideManager.updateSlide((prev) => ({
@@ -12,9 +11,8 @@ export const useVersionEffect = () => {
     }));
 
   useEffect(() => {
-    if (_currentSlide.items.length > 0) {
-      handleSetVersion();
-    }
+    console.log("useEffect 実行");
+    handleSetVersion();
   }, []);
 
   return null;
