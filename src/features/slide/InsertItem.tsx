@@ -1,11 +1,11 @@
 import React from "react";
 import { itemFactory } from "../../mock/slideItemFactory";
-import { CurrentSlideManager } from "../../recoil/currentSlide";
+import { currentSlideManager } from "../../recoil/currentSlide";
 export const InsertItem = () => {
   const insertText = () => {
     const text = itemFactory("text", { content: "Hello World from Main" });
     console.log("Inserting text from main branch");
-    CurrentSlideManager.updateSlide((slide) => {
+    currentSlideManager.updateSlide((slide) => {
       return {
         ...slide,
         items: [...slide.items, text],

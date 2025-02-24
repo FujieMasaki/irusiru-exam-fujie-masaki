@@ -1,12 +1,12 @@
 import React from "react";
-import { CurrentSlideManager } from "../../recoil/currentSlide";
+import { currentSlideManager } from "../../recoil/currentSlide";
 import { SlideItem } from "../../types";
 export const Recognizer = (props: { item: SlideItem }) => {
   if (props.item.type === "text")
     return (
       <textarea
         onChange={(event) =>
-          CurrentSlideManager.updateSlide((prev) => ({
+          currentSlideManager.updateSlide((prev) => ({
             ...prev,
             items: prev.items.map((item) =>
               item.id === props.item.id
