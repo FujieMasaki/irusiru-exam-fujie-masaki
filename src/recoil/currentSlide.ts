@@ -16,7 +16,6 @@ export const currentSlideManager = {
   updateSlide: (slide: Slide | ((val: Slide) => Slide)) =>
     setRecoil(currentSlide, (prev) => {
       const next = typeof slide === "function" ? slide(prev) : slide;
-      console.log("updateSlide 実行", { prev, next });
       if (isEqual(prev, next)) return prev;
       return next;
     }),

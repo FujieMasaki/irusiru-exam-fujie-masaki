@@ -2,8 +2,6 @@ import { currentSlideManager } from "../recoil/currentSlide";
 import { useEffect } from "react";
 
 export const useVersionEffect = () => {
-  console.log("useVersionEffect 実行");
-
   const handleSetVersion = () =>
     currentSlideManager.updateSlide((prev) => ({
       ...prev,
@@ -11,7 +9,6 @@ export const useVersionEffect = () => {
     }));
 
   useEffect(() => {
-    console.log("useEffect 実行");
     handleSetVersion();
   }, []);
 
