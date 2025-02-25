@@ -1,10 +1,12 @@
 import React from "react";
 import { currentSlideManager } from "../../recoil/currentSlide";
 import { SlideItem } from "../../types";
+
 export const Recognizer = (props: { item: SlideItem }) => {
   if (props.item.type === "text")
     return (
       <textarea
+        value={props.item.content}
         onChange={(event) =>
           currentSlideManager.updateSlide((prev) => ({
             ...prev,
@@ -18,9 +20,8 @@ export const Recognizer = (props: { item: SlideItem }) => {
             ),
           }))
         }
-      >
-        {props.item.content}
-      </textarea>
+      />
     );
+  // 現在はtextタイプのみ実装されており、他のタイプ(image等)実装の際は対応必要
   throw new Error("Invalid type");
 };
