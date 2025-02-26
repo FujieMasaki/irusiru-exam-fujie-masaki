@@ -1,24 +1,16 @@
-import React from 'react';
-import { itemFactory } from '../../mock/slideItemFactory';
-import { CurrentSlideManager } from '../../recoil/currentSlide';
+import React from "react";
+import { itemFactory } from "../../mock/slideItemFactory";
+import { CurrentSlideManager } from "../../recoil/currentSlide";
 export const InsertItem = () => {
-    const insertText = () => {
-        const text = itemFactory("text", { content: "Hello World from Main" })
-        console.log("Inserting text from main branch");
-        CurrentSlideManager.aaa((slide) => {
-            return {
-                ...slide,
-                items: [
-                    ...slide.items,
-                    text
-                ]
-            }
-        })
-    }
+  const insertText = () => {
+    const text = itemFactory("text", { content: "Hello World from Main" });
+    CurrentSlideManager.updateSlide((slide) => {
+      return {
+        ...slide,
+        items: [...slide.items, text],
+      };
+    });
+  };
 
-    return (
-        <button onClick={insertText}>
-            Insert Main Text
-        </button>
-    )
-}
+  return <button onClick={insertText}>Insert Main Text</button>;
+};

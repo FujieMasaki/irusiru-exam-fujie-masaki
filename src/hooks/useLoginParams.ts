@@ -2,31 +2,44 @@ import { useState } from "react";
 import { CurrentUserManager } from "../recoil";
 import { userFactory } from "../mock";
 
-export const useLoginParams = () => {
-    const [params, setParams] = useState({
-        username: '',
-        password: '',
-    });
-    const [error, setError] = useState('');
+type LoginFormData = {
+  username: string;
+  password: string;
+};
 
-    const handleOnSubmit = () => {
-        if(params.password === '') {
-            setError('Password is required.');
-            return;
-        }
-        
-        if(params.username === "admin") {
-            CurrentUserManager.set(userFactory("admin"));
-        } else {
-            CurrentUserManager.set(userFactory("general"));
-        }
+type LoginFormHandlers = [
+  error: string,
+  handleOnSubmit: () => void,
+  handleOnChange: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    key: keyof LoginFormData
+  ) => void
+];
+
+export const useLoginParams = (): LoginFormHandlers => {
+  const [params, setParams] = useState({
+    username: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleOnSubmit = () => {
+    if (params.password === "") {
+      setError("Password is required.");
+      return;
     }
 
-    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>, key: "username" | "password" ) => setParams({ ...params, [key]: e.target.value })
+    if (params.username === "admin") {
+      CurrentUserManager.set(userFactory("admin"));
+    } else {
+      CurrentUserManager.set(userFactory("general"));
+    }
+  };
 
-    return [
-        error,
-        handleOnSubmit,
-        handleOnChange
-    ]
-}
+  const handleOnChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    key: "username" | "password"
+  ) => setParams({ ...params, [key]: e.target.value });
+
+  return [error, handleOnSubmit, handleOnChange];
+};
