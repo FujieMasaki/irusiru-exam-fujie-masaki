@@ -1,5 +1,5 @@
 import React from "react";
-import { currentSlideManager } from "../../recoil/currentSlide";
+import { CurrentSlideManager } from "../../recoil/currentSlide";
 import { SlideItem } from "../../types";
 
 export const Recognizer = (props: { item: SlideItem }) => {
@@ -8,7 +8,7 @@ export const Recognizer = (props: { item: SlideItem }) => {
       <textarea
         value={props.item.content}
         onChange={(event) =>
-          currentSlideManager.updateSlide((prev) => ({
+          CurrentSlideManager.updateSlide((prev) => ({
             ...prev,
             items: prev.items.map((item) =>
               item.id === props.item.id
